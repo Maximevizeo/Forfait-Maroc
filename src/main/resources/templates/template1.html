@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymleaf/Layout">
+<head>
+<meta charset="utf-8"/>
+<title>Insert title here</title>
+     <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.1/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.1/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+  <link rel="stylesheet" 
+  href="../static/css/style.css"
+  th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<header>
+	  <div class="navbar navbar-inverse">
+	    <div class="container-fluid">
+	      <ul class="nav navbar-nav">
+	        <li><a th:href="@{/index}">Acceuil</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	      	<li><a th:href="@{/login?logout}">Logout</a></li>
+	      </ul>
+	    </div>
+	  </div>       
+	</header>
+	<section layout:fragment="content"></section>
+	<footer>
+	  <div class="navbar-fixed-bottom">
+	  	<small>@vizeo-technologies</small>
+	  </div>
+	</footer>
+</body>
+</html>

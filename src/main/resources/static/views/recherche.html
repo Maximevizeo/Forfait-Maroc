@@ -1,0 +1,182 @@
+<head>
+<meta charset="utf-8" />
+<title>Mon BondManager</title>
+<link href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<link rel="stylesheet" type="text/css" href="../font-awesome-4.7.0/css/font-awesome.min.css" />
+</head>
+<div class="container spacer40" ng-init="recherche()">
+	<div class="panel panel-primary" ng-if="mode.value==0">
+		<div class="panel-heading">Liste des candidats</div>
+		<div class="panel-body">
+			<form>
+				<div class="form-group">
+					<label>Recherche</label> <input type="text" ng-model="motCle" />
+				</div>
+			</form>
+			<table class="table table-responsive">
+				<thead>
+				<tr>
+					<th>
+						<a href="#"
+						ng-click="sortType = 'id'; sortReverse = !sortReverse"> Editer
+							<span ng-show="sortType == 'id' && !sortReverse"
+							class="fa fa-caret-down"></span> <span
+							ng-show="sortType == 'id' && sortReverse"
+							class="fa fa-caret-down"></span>
+						</a>
+					</th>
+					<th>
+						Prénom	
+					</th>
+					<th>
+						Nom
+					</th>
+					<th>Adresse</th>
+					<th>Téléphone</th>
+					<th>E-mail</th>
+					<th>
+						<a href="#"
+						ng-click="sortType = 'fonction'; sortReverse = !sortReverse"> Fonction
+							<span ng-show="sortType == 'fonction' && !sortReverse"
+							class="fa fa-caret-down"></span> <span
+							ng-show="sortType == 'fonction' && sortReverse"
+							class="fa fa-caret-up"></span>
+						</a>
+					</th>
+					<th>
+						<a href="#"
+						ng-click="sortType = 'type'; sortReverse = !sortReverse"> type
+							<span ng-show="sortType == 'type' && !sortReverse"
+							class="fa fa-caret-down"></span> <span
+							ng-show="sortType == 'type' && sortReverse"
+							class="fa fa-caret-up"></span>
+						</a>
+					</th>
+					<th>
+						<a href="#"
+						ng-click="sortType = 'Dispo'; sortReverse = !sortReverse"> Dispo
+							<span ng-show="sortType == 'Dispo' && !sortReverse"
+							class="fa fa-caret-down"></span> <span
+							ng-show="sortType == 'Dispo' && sortReverse"
+							class="fa fa-caret-up"></span>
+						</a>
+					</th>
+					<th>
+						<a href="#"
+						ng-click="sortType = 'salaire'; sortReverse = !sortReverse"> Salaire
+							<span ng-show="sortType == 'salaire' && !sortReverse"
+							class="fa fa-caret-down"></span> <span
+							ng-show="sortType == 'salaire' && sortReverse"
+							class="fa fa-caret-up"></span>
+						</a>
+					</th>
+					<th>
+						<a href="#"
+						ng-click="sortType = 'situ'; sortReverse = !sortReverse"> Situation
+							<span ng-show="sortType == 'situ' && !sortReverse"
+							class="fa fa-caret-down"></span> <span
+							ng-show="sortType == 'situ' && sortReverse"
+							class="fa fa-caret-up"></span>
+						</a>
+					</th>
+					<th>CV</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr
+					ng-repeat="p in pageCandidats.data | orderBy:sortType:sortReverse | filter:motCle">
+					<td>
+						<button ng-click="data.id=p.id ; candidat.data = p ; mode.value=1">{{p.id}}</button></td>
+					<td>{{p.prenom}}</td>
+					<td>{{p.nom}}</td>
+					<td>{{p.adresse}}</td>
+					<td>{{p.telephone}}</td>
+					<td>{{p.email}}</td>
+					<td>{{p.fonction}}</td>
+					<td>{{p.type}}</td>
+					<td>{{p.dispo}}</td>
+					<td>{{p.salaire}}</td>
+					<td>{{p.situation}}</td>
+					<td>{{p.cv}}</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+		<div class="panel-primary" ng-if="mode.value==1">
+		<div class="panel-heading">Edition d'un candidat</div>
+		<div class="panel-body">
+			<div class="panel-primary">
+				<div class="panel-heading">Coordonnées</div>
+				<div class="panel-body fixed-panel">
+					<form class="form-inline" ng-submit="edit()">
+						<div class="form-group">
+							<label class="control-label spacerRight">Nom:</label> <input
+								class="form-control" type="text" ng-model="candidat.data.nom" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">Prénom:</label> <input
+								class="form-control" type="text" ng-model="candidat.data.prenom" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">Ville:</label> <input
+								class="form-control" type="text" ng-model="candidat.data.adresse" />
+						</div>
+						<div class="form-group spacer10">
+							<label class="control-label">Téléphone:</label> <input
+								class="form-control" type="text" ng-model="candidat.data.telephone" />
+						</div>
+						<div class="form-group spacer10">
+							<label class="control-label spacerMail">Email:</label> <input
+								class="form-control" type="text" ng-model="candidat.data.email" />
+						</div>
+						<div>
+						<button type="submit" value ="Submit" class="btn btn-primary pull-right" >Valider</button></div>
+					</form>
+				</div>
+			</div>
+			<div class="panel-primary">
+				<div class="panel-heading">Détails</div>
+				<div class="panel-body fixed-panel">
+					<form class="form-inline">
+						<div class="form-group">
+							<label class="control-label">Fonction:</label> <input
+								class="form-control" type="text" ng-model="candidat.data.fonction" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">Type:</label> <select
+								class="form-control" type="text" ng-model="candidat.data.type"
+								ng-options="x for x in type">
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Disponibilité:</label> <select
+								class="form-control" type="text" ng-model="candidat.data.dispo"
+								ng-options="x for x in dispo">
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Salaire:</label> <input
+								class="form-control" type="text" ng-model="candidat.data.salaire" />
+						</div>
+						<div class="form-group spacer10">
+							<label class="control-label">Situation:</label> <select
+								class="form-control" type="text" ng-model="candidat.data.situation"
+								ng-options="x for x in situation">
+							</select>
+						</div>
+						<div class="form-group spacerCv">
+							<label class="control-label">CV:</label>
+   							<button class="btn-success" ng-click = "uploadFile()">Upload File</button>
+						</div>
+						<div>
+						<button type="submit" value ="Submit" class="btn btn-primary pull-right" >Valider</button></div>
+					</form> 
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

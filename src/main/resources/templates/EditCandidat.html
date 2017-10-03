@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/Layout"
+	layout:decorator="template1">
+<head>
+<meta charset="utf-8" />
+<title>Saisie des candidats</title>
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.1/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.1/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+<link rel="stylesheet" href="../static/css/style.css"
+	th:href="@{/css/style.css}" />
+</head>
+<body>
+<div layout:fragment="content">
+	<div class="col-md-3 col-sm-6 col-xs-12 spacer40 col-md-offset-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">Saisie d'un candidat</div>
+			<div class="panel-body">
+				<form th:action="@{UpdateCandidat}" enctype="multipart/form-data" method="post" th:object="${candidat}">
+					<div class="form-group">
+						<label class="control-label">Id:</label>
+						<input type="text" th:field="*{id}" class="form-control"/>
+						<span class="text-danger" th:errors="*{id}"></span>
+					</div>			
+					<div class="form-group">
+						<label class="control-label">Nom:</label>
+						<input type="text" th:field="*{nom}" class="form-control"/>
+						<span class="text-danger" th:errors="*{nom}"></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Prénom:</label>
+						<input type="text" th:field="*{prenom}" class="form-control"/>
+						<span class="text-danger" th:errors="*{prenom}"></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Adresse:</label>
+						<input type="text" th:field="*{adresse}" class="form-control"/>
+						<span class="text-danger" th:errors="*{adresse}"></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Téléphone:</label>
+						<input type="text" th:field="*{telephone}" class="form-control"/>
+						<span class="text-danger" th:errors="*{telephone}"></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Email:</label>
+						<input type="text" th:field="*{email}" class="form-control"/>
+						<span class="text-danger" th:errors="*{email}"></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Situation:</label>
+						<input type="text" th:field="*{situation}" class="form-control"/>
+						<span class="text-danger" th:errors="*{situation}"></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">CV:</label>
+						<input type="file" name="file" class="form-control"/>
+						<span></span>
+					</div>
+					<div>
+						<button type="submit" class="btn btn-primary">Valider</button></div>
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

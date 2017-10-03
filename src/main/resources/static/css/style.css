@@ -1,0 +1,114 @@
+.spacer10{
+	margin-top: 10px;
+}
+
+.spacer40{
+	margin-top: 40px;
+}
+
+.spacer200{
+	margin-top: 200px;
+}
+
+.red{
+	color: red;
+}
+
+.clickable{
+	cursor: pointer;
+}
+
+.navbar-nav > li{
+  padding-right:10px;
+}
+
+.spacerRight{
+	padding-right:38px;
+}
+
+.spacerMail{
+	padding-right:14px;
+}
+
+.spacerCv{
+	padding-left:52px;
+}
+
+.btn-lg {
+    width:100px;    //Specify your width here
+}
+
+.fixed-panel {
+  min-height: 150px;
+  max-height: 150px;
+}
+
+.form-inline > div{
+	margin-right: 50px;
+}
+
+table {
+        width: 100%;
+    }
+
+thead, tbody, tr, td, th { display: block; }
+
+tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+thead th {
+    height: 30px;
+
+    /*text-align: left;*/
+}
+
+tbody {
+    height: 300px;
+    overflow-y: auto;
+}
+
+thead {
+    /* fallback */
+}
+
+
+tbody td, thead th {
+    width: 8%;
+    float: left;
+    word-wrap: break-word;
+}
+
+.username.ng-valid {
+	          background-color: lightgreen;
+	      
+}
+
+.username.ng-dirty.ng-invalid-required {
+	          background-color: red;
+	      
+}
+
+.username.ng-dirty.ng-invalid-minlength {
+	          background-color: yellow;
+	      
+}
+
+ 
+.email.ng-valid {
+	          background-color: lightgreen;
+	      
+}
+
+.email.ng-dirty.ng-invalid-required {
+	          background-color: red;
+	      
+}
+
+.email.ng-dirty.ng-invalid-email {
+	          background-color: yellow;
+	      
+}

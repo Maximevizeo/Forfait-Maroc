@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Mon BondManager</title>
+<link href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body ng-app="myBmApp">
+	<div class="navbar navbar-default">
+		<div class="container-fluid">
+		<ul class="nav navbar-nav navbar-right">
+	    	<li><a ng:href="/login?logout">Logout</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-left">
+	    	<li><button type="button" class="btn btn-primary btn-lg" ng-click="redirect()">Accueil</button></li>
+		</ul>
+		<ul class="nav navbar-nav">
+			<li><a ui-sref="recherche">Index</a></li>
+			<li><a ui-sref="newCandidat">Nouveau Candidat</a></li>
+<!-- 			<li><a ui-sref="newUser">Nouveau User</a></li> -->
+		</ul>
+		</div>
+	</div>
+	
+	<div ui-view>
+	
+	</div>
+	<script type="text/javascript"
+		src="node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript" src="node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+	<!-- <script type="text/javascript" src="bower_components/angular-upload/angular-upload.min.js"></script>
+	<script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script> for no html5 browsers support
+	<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script> -->
+	<script type="text/javascript" src="js/myApp.js"></script>
+</body>
+</html>

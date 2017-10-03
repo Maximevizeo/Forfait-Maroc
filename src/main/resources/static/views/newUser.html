@@ -1,0 +1,35 @@
+<head>
+<meta charset="utf-8" />
+<title>Mon BondManager</title>
+<link href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+</head>
+	<div class="container spacer40">
+		<div class="panel-default">
+			<div class="panel-heading">Saisie d'un user</div>
+			<div class="panel-body">
+				<form>
+					<div class="form-group">
+						<label class="control-label">Username:</label> <input
+							class="form-control" type="text" ng-model="user.username" />
+					</div>
+					<div>{{user.username}}</div>
+					<div class="form-group">
+						<label class="control-label">Password:</label> <input
+							class="form-control" type="text" ng-model="user.password" />
+					</div>
+					<div>{{user.password}}</div>
+					<div class="form-group">
+						<label class="control-label">Permission:</label> <input
+							class="form-control" type="text" ng-model="role" />
+					</div>
+					<div>
+						<button ng-click="save()" class="btn btn-primary">Valider</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+

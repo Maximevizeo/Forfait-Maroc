@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/Layout"
+	layout:decorator="template1">
+<head>
+<meta charset="utf-8" />
+<title>Mon BondManager</title>
+<link href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+</head>
+<div>Input should also be here: {{id}}</div>
+<div class="container spacer40" ng-init="editCdt()">
+	<div class="panel-primary" ng-if="mode==0">
+		<div class="panel-heading">Editer un candidat</div>
+		<div class="panel-body">
+			<div class="panel-primary">
+				<div class="panel-heading">Coordonnées</div>
+				<div class="panel-body fixed-panel">
+					<form class="form-inline">
+						<div class="form-group">
+							<label class="control-label spacerRight">Nom:</label> <input
+								class="form-control" type="text" placeholder="{{candidat.nom}}" ng-model="candidat.nom" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">Prénom:</label> <input
+								class="form-control" type="text" ng-model="candidat.prenom" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">Ville:</label> <input
+								class="form-control" type="text" ng-model="candidat.adresse" />
+						</div>
+						<div class="form-group spacer10">
+							<label class="control-label">Téléphone:</label> <input
+								class="form-control" type="number" ng-model="candidat.telephone" />
+						</div>
+						<div class="form-group spacer10">
+							<label class="control-label spacerMail">Email:</label> <input
+								class="form-control" type="text" ng-model="candidat.email" />
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="panel-primary">
+				<div class="panel-heading">Détails</div>
+				<div class="panel-body fixed-panel">
+					<form class="form-inline">
+						<div class="form-group">
+							<label class="control-label">Fonction:</label> <input
+								class="form-control" type="text" ng-model="candidat.fonction" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">Type:</label> <select
+								class="form-control" type="text" ng-model="candidat.type"
+								ng-options="x for x in type">
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Disponibilité:</label> <select
+								class="form-control" type="text" ng-model="candidat.dispo"
+								ng-options="x for x in dispo">
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Salaire:</label> <input
+								class="form-control" type="number" ng-model="candidat.salaire" />
+						</div>
+						<div class="form-group spacer10">
+							<label class="control-label">Situation:</label> <select
+								class="form-control" type="text" ng-model="candidat.situation"
+								ng-options="x for x in situation">
+							</select>
+						</div>
+						<div class="form-group spacerCv">
+							<label class="control-label">CV:</label>
+   							<button class="btn-success" ng-click = "uploadFile()">Upload File</button>
+						</div>
+						<div>
+						<button type="submit" class="btn btn-primary pull-right" ng-click = "editCdt()">Valider</button></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</html>

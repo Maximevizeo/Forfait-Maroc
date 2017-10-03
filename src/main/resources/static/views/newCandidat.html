@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/Layout"
+	layout:decorator="template1">
+<head>
+<meta charset="utf-8" />
+<title>Mon BondManager</title>
+<link href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+</head>
+<div class="container spacer40">
+	<div class="panel-primary" ng-if="mode==0">
+		<div class="panel-heading">Saisie d'un candidat</div>
+		<div class="panel-body">
+			<div class="panel-primary">
+				<div class="panel-heading">Coordonnées</div>
+				<div class="panel-body fixed-panel">
+					<form class="form-inline" enctype="multipart/form-data">
+						<div class="form-group">
+							<label class="control-label spacerRight">Nom:</label> <input
+								class="form-control" type="text" ng-model="candidat.nom" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">Prénom:</label> <input
+								class="form-control" type="text" ng-model="candidat.prenom" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">Ville:</label> <input
+								class="form-control" type="text" ng-model="candidat.adresse" />
+						</div>
+						<div class="form-group spacer10">
+							<label class="control-label">Téléphone:</label> <input
+								class="form-control" type="number" ng-model="candidat.telephone" />
+						</div>
+						<div class="form-group spacer10">
+							<label class="control-label spacerMail">Email:</label> <input
+								class="form-control" type="text" ng-model="candidat.email" />
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="panel-primary">
+				<div class="panel-heading">Détails</div>
+				<div class="panel-body fixed-panel">
+					<form class="form-inline">
+						<div class="form-group">
+							<label class="control-label">Fonction:</label> <input
+								class="form-control" type="text" ng-model="candidat.fonction" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">Type:</label> <select
+								class="form-control" type="text" ng-model="candidat.type"
+								ng-options="x for x in type">
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Disponibilité:</label> <select
+								class="form-control" type="text" ng-model="candidat.dispo"
+								ng-options="x for x in dispo">
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Salaire:</label> <input
+								class="form-control" type="number" ng-model="candidat.salaire" />
+						</div>
+						<div class="form-group spacer10">
+							<label class="control-label">Situation:</label> <select
+								class="form-control" type="text" ng-model="candidat.situation"
+								ng-options="x for x in situation">
+							</select>
+						</div>
+						<div class="form-group spacerCv">
+							<label class="control-label">CV:</label>
+   							<div>
+    							<input type="file" file-model="myFile"/>
+   								 <button ng-click="uploadFile()">upload me</button>
+							</div>
+							<div>{{myFile.size}}</div>
+						</div>
+						<div>
+						<button type="submit" class="btn btn-primary pull-right" ng-click = "save()">Valider</button></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="panel-default" ng-if="mode==1">
+	<div class="panel-heading">
+		Confirmation : <a ng-click="modeForm()" class="clickable">Nouveau</a>
+	</div>
+	<div class="panel-body panel-primary">
+		<div class="form-group">
+			<label>Nom:</label><label>{{candidat.nom}}</label>
+		</div>
+		<div class="form-group">
+			<label>Prénom:</label><label>{{candidat.prenom}}</label>
+		</div>
+		<div class="form-group">
+			<label>Adresse:</label><label>{{candidat.adresse}}</label>
+		</div>
+		<div class="form-group">
+			<label>Téléphone:</label><label>{{candidat.telephone}}</label>
+		</div>
+		<div class="form-group">
+			<label>Email:</label><label>{{candidat.email}}</label>
+		</div>
+		<div class="form-group">
+			<label>Situation:</label><label>{{candidat.situation}}</label>
+		</div>
+		<div class="form-group">
+			<label>CV:</label><label>{{candidat.cv}}</label>
+		</div>
+	</div>
+</div>
+</html>

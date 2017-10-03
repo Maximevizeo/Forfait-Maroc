@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Mon BondManager</title>
+<link href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body ng-app="myHome" ng-controller="myHomeCtrl">
+
+	<div class="navbar navbar-default">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a ng:href="/login?logout">Logout</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="panel panel-primary">
+	<div class="panel-heading">Accueil</div>
+			<div class="panel-body">
+			<img class="col-md-3 col-md-offset-4" ng-src="{{logo.src}}">
+			<div class="col-md-4 spacer40 col-md-offset-4">
+			<ul class="nav navbar-nav" >
+			<li><button type="button" class="btn btn-primary btn-lg" ng-click="redirect()">RH</button></li>
+			<li><button type="button" class="btn btn-primary btn-lg">COM</button></li>
+			<li><button type="button" class="btn btn-primary btn-lg">ADMIN</button></li>
+			</ul>
+			</div>
+			
+	</div>
+	</div>
+	<footer>
+	  <div class="navbar-fixed-bottom">
+	  	<small>@vizeo-technologies</small>
+	  </div>
+	</footer>
+	<script type="text/javascript"
+		src="node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript"
+		src="node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="js/myHome.js"></script>
+</body>
+</html>
